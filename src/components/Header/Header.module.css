@@ -1,0 +1,14 @@
+.header {
+    background: gray;
+    height: 120px;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
