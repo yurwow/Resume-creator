@@ -4,7 +4,7 @@ import styles from './Header.module.css';
 const Header = () => {
     return (
         <header className={styles.header}>
-            Resume creator
+            <h1>Resume creator</h1>
         </header>
     );
 };
