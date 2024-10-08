@@ -11,4 +11,47 @@
     border-bottom-left-radius: 15px;
     margin-left: 30px;
     margin-right: 30px;
+    border-bottom: 2px solid #334155;
+}
+
+.animation {
+    display:inline-block;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.animation:first-of-type {
+    animation: showup 7s 1;
+}
+
+.animation:last-of-type {
+    width:0px;
+    animation: reveal 7s 1;
+}
+
+.animation:last-of-type .animation_span {
+    margin-left:-355px;
+    animation: slidein 7s 1;
+}
+
+@keyframes showup {
+    0% {opacity:0;}
+    20% {opacity:1;}
+    80% {opacity:1;}
+    100% {opacity:0;}
+}
+
+@keyframes slidein {
+    0% { margin-left:-800px; }
+    20% { margin-left:-800px; }
+    35% { margin-left:0px; }
+    100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+    0% {opacity:0;width:0px;}
+    20% {opacity:1;width:0px;}
+    30% {width:355px;}
+    80% {opacity:1;}
+    100% {opacity:0;width:355px;}
 }
