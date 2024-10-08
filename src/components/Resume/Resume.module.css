@@ -4,6 +4,13 @@
     margin-left: 200px;
 }
 
+@media (max-width: 768px) {
+    .container {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
 .header_resume {
     background-image: url('../../img/background.png');
     border-top-left-radius: 20px;
