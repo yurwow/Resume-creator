@@ -1,63 +1,42 @@
 import styles from "./Experience.module.css";
 import Input from "../Input/Input.jsx";
-import {useState} from "react";
+import Button from "../Button/Button.jsx";
 
-const Experience = () => {
-    const [experiences, setExperiences] = useState([{ position: "", company: "", city: "", years: ""}]);
-
-    function handleAddExperience() {
-        setExperiences([...experiences, { position: "", company: "", city: "", years: "" }]);
-    }
-
-    function handleRemoveExperience(index) {
-        const newExperiences = experiences.filter((_, i) => i !== index);
-        setExperiences(newExperiences);
-    }
-
-    function handleChange(index, field, value) {
-        const newExperiences = experiences.map((experience, i) =>
-            i === index ? { ...experience, [field]: value } : experience
+const Experience = ({experience, onExperienceChange}) => {
+    const handleChange = (index, field, value) => {
+        const updatedExperience = experience.map((exp, i) =>
+            i === index ? { ...exp, [field]: value } : exp
         );
-        setExperiences(newExperiences);
-    }
+        onExperienceChange(updatedExperience);
+    };
+
+    const handleAddExperience = () => {
+        onExperienceChange([...experience, { company: "", years: "" }]);
+    };
+
+    const handleRemoveExperience = (index) => {
+        const updatedExperience = experience.filter((_, i) => i !== index);
+        onExperienceChange(updatedExperience);
+    };
 
     return (
         <div className={styles.btn_container}>
-            {experiences.map((experience, index) => (
+            {experience.map((exp, index) => (
                 <div key={index}>
                     <Input
-                        placeholder="Позиция..."
-                        value={experience.position}
-                        onChange={(e) => handleChange(index, "position", e.target.value)}
-                    />
-                    <Input
-                        placeholder="Компания..."
-                        value={experience.company}
+                        placeholder="Описание..."
+                        value={exp.company}
                         onChange={(e) => handleChange(index, "company", e.target.value)}
                     />
                     <Input
-                        placeholder="Город..."
-                        value={experience.city}
-                        onChange={(e) => handleChange(index, "city", e.target.value)}
-                    />
-                    <Input
                         placeholder="Годы работы..."
-                        value={experience.years}
+                        value={exp.years}
                         onChange={(e) => handleChange(index, "years", e.target.value)}
                     />
-                    <button
-                        type="button"
-                        onClick={() => handleRemoveExperience(index)}
-                        className={styles.btn}
-                    >
-                        Удалить
-                    </button>
+                    <Button text='Удалить' onClick={() => handleRemoveExperience(index)}/>
                 </div>
             ))}
-
-            <button type="button" onClick={handleAddExperience} className={styles.btn}>
-                Добавить
-            </button>
+            <Button text='Добавить' onClick={handleAddExperience}/>
         </div>
     );
 };

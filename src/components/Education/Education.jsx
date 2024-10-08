@@ -1,58 +1,44 @@
 import Input from "../Input/Input.jsx";
 import {useState} from "react";
 import styles from "../Experienсe/Experience.module.css";
+import Button from "../Button/Button.jsx";
 
-const Education = () => {
-    const [experiences, setExperiences] = useState([{ university: "", speciality: "", graduationYear: ""}]);
-
-    function handleAddExperience() {
-        setExperiences([...experiences, { university: "", speciality: "", graduationYear: "" }]);
-    }
-
-    function handleRemoveExperience(index) {
-        const newExperiences = experiences.filter((_, i) => i !== index);
-        setExperiences(newExperiences);
-    }
-
-    function handleChange(index, field, value) {
-        const newExperiences = experiences.map((experience, i) =>
-            i === index ? { ...experience, [field]: value } : experience
+const Education = ({ education, onEducationChange }) => {
+    const handleChange = (index, field, value) => {
+        const updatedEducation = education.map((edu, i) =>
+            i === index ? { ...edu, [field]: value } : edu
         );
-        setExperiences(newExperiences);
-    }
+        onEducationChange(updatedEducation);
+    };
+
+    const handleAddEducation = () => {
+        onEducationChange([...education, { university: "", graduationYear: "" }]);
+    };
+
+    const handleRemoveEducation = (index) => {
+        const updatedEducation = education.filter((_, i) => i !== index);
+        onEducationChange(updatedEducation);
+    };
 
     return (
         <div className={styles.btn_container}>
-            {experiences.map((experience, index) => (
+            {education.map((edu, index) => (
                 <div key={index}>
                     <Input
-                        placeholder="Университет..."
-                        value={experience.university}
-                        onChange={(e) => handleChange(index, "position", e.target.value)}
-                    />
-                    <Input
-                        placeholder="Специальность..."
-                        value={experience.speciality}
-                        onChange={(e) => handleChange(index, "company", e.target.value)}
+                        placeholder="Описание..."
+                        value={edu.university}
+                        onChange={(e) => handleChange(index, "university", e.target.value)}
                     />
                     <Input
                         placeholder="Год окончания..."
-                        value={experience.graduationYear}
-                        onChange={(e) => handleChange(index, "city", e.target.value)}
+                        value={edu.graduationYear}
+                        onChange={(e) => handleChange(index, "graduationYear", e.target.value)}
                     />
-                    <button
-                        type="button"
-                        onClick={() => handleRemoveExperience(index)}
-                        className={styles.btn}
-                    >
-                        Удалить
-                    </button>
+                    <Button text='Удалить' onClick={() => handleRemoveEducation(index)}/>
                 </div>
             ))}
+            <Button text='Добавить' onClick={handleAddEducation}/>
 
-            <button type="button" onClick={handleAddExperience} className={styles.btn}>
-                Добавить
-            </button>
         </div>
     );
 };

@@ -1,9 +1,16 @@
 import styles from './Input.module.css';
 
-const Input = ({placeholder}) => {
+const Input = ({placeholder, type, value, onChange, name}) => {
     return (
         <>
-            <input placeholder={placeholder} className={styles.input}/>
+            <input
+                type={type}
+                placeholder={placeholder}
+                className={styles.input}
+                value={value}
+                onChange={onChange}
+                name={name}
+            />
         </>
     );
 };

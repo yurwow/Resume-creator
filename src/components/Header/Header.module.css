@@ -1,5 +1,6 @@
 .header {
-    background: gray;
+    background-color: #2b2b2b;
+    /*background: gray;*/
     height: 120px;
     font-size: 28px;
     display: flex;

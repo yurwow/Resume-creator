@@ -11,3 +11,21 @@
   font-family: "Plus Jakarta Sans", sans-serif;
   color: #CBD5E1;
 }
+
+::-webkit-scrollbar {
+  width: 6px; /* Ширина скроллбара */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Цвет ползунка */
+  border-radius: 10px; /* Скругление углов */
+}
+
+::-webkit-scrollbar-track {
+  background: #2b2b2b; /* Цвет области скроллбара */
+  border-radius: 10px; /* Скругление углов */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Цвет ползунка при наведении */
+}

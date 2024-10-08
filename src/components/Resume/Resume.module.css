@@ -1,0 +1,129 @@
+.container {
+    margin-top: 40px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.header_resume {
+    background-image: url('../../img/background.png');
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 160px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-bottom: 1px solid #334155;
+}
+
+.resume_title {
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+.job {
+    margin-top: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.city_icon {
+    width: 18px;
+    height: 18px;
+}
+
+.city_inf {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.city_inf_icon {
+    display: flex;
+    align-items: center;
+}
+
+.city_email_icon {
+    margin-left: 15px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.call_icon {
+
+}
+
+.main_content {
+    background: #0F172A;
+    height: 600px;
+    padding: 32px 64px 58px 64px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.main_container {
+    display: flex;
+}
+
+.resume_inf {
+    width: 100%;
+    margin-right: 20px;
+}
+
+.resume_desc {
+    /*background: #334155;*/
+    max-width: 300px;
+    /*height: 450px;*/
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+
+}
+
+.resume_education {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.line {
+    margin-top: 14px;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 14px;
+}
+
+.resume_experience {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.resume_experience_inf {
+    display: flex;
+
+}
+
+.resume_more_inf {
+    max-width: 700px;
+    margin-left: 250px;
+}
+
+.person_information {
+    width: 350px;
+    height: 170px;
+    background: #CBD5E1;
+}
+
+.person_icon {
+    width: 150px;
+    height: 150px;
+}
+
+.person {
+    display: flex;
+    justify-content: center;
+}
+
+
