@@ -5,7 +5,7 @@ import call from '../../img/call.png'
 
 const Resume = ({formData}) => {
     const {personalInfo, education, experience} = formData;
-    // console.log(formData)
+
     return (
         <div className={styles.container}>
             <div className={styles.header_resume}>
@@ -33,26 +33,22 @@ const Resume = ({formData}) => {
                             <span>Образование</span>
                             <div className={styles.resume_desc}>
                                 {education.map((edu, index) => (
-                                    <div key={index}>
-                                        <span>{edu.university || ""}</span>
+                                    <div className={styles.resume_desc_container} key={index}>
+                                        <span style={{
+                                            marginLeft: '350px'
+                                        }}>{edu.university || ""}</span>
                                         <span>{edu.graduationYear || ""}</span>
                                     </div>
                                 ))}
-                                {/*<span>{education.university || ""}</span>*/}
-                                {/*<span style={{marginTop: '0px'}}>*/}
-                                {/*    */}
-                                {/*</span>*/}
                             </div>
-                            {/*<span>{education.graduationYear || ""}</span>*/}
                         </div>
                         <div className={styles.line}></div>
                         <div className={styles.resume_experience}>
                             <span>Опыт работы</span>
-                            {/*<span>{experience.company || ""}</span>*/}
-                            {/*<span>{experience.years || ""}</span>*/}
                             {experience.map((exp, index) => (
-                                <div key={index}>
-                                    <span>{exp.company || ""}</span>
+                                <div className={styles.resume_desc_container} key={index}>
+                                    <span style={{
+                                        marginLeft: '450px', maxWidth:'400px'}}>{exp.company || ""}</span>
                                     <span>{exp.years || ""}</span>
                                 </div>
                             ))}
@@ -67,11 +63,6 @@ const Resume = ({formData}) => {
                         </div>
                         <div className={styles.line}></div>
                     </div>
-                    {/*<div className={styles.person_information}>*/}
-                    {/*    <div className={styles.person}>*/}
-                    {/*        <img src={personImage} alt="person-image" className={styles.person_icon}/>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                 </div>
             </div>
         </div>

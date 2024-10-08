@@ -72,18 +72,24 @@
 
 .resume_desc {
     /*background: #334155;*/
-    max-width: 300px;
+    /*max-width: 300px;*/
+    width: 100%;
     /*height: 450px;*/
     max-height: 600px;
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     flex-wrap: nowrap;
+}
 
+.resume_desc_container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
 }
 
 .resume_education {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 14px;
 }
 
@@ -94,10 +100,7 @@
 }
 
 .resume_experience {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 14px;
-    flex-wrap: wrap;
 }
 
 .resume_experience_inf {
@@ -106,7 +109,7 @@
 
 .resume_more_inf {
     max-width: 700px;
-    margin-left: 250px;
+    margin-left: 325px;
 }
 
 .person_information {

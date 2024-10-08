@@ -59,7 +59,7 @@ const Form = () => {
     console.log(formData);
 
     const generatePDFHandler = () => {
-        generatePDF("resume"); // Передаем ID элемента
+        generatePDF("resume");
     };
 
     return (
