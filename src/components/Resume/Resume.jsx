@@ -32,18 +32,30 @@ const Resume = ({formData}) => {
                         <div className={styles.resume_education}>
                             <span>Образование</span>
                             <div className={styles.resume_desc}>
-                                <span>{education.university || ""}</span>
+                                {education.map((edu, index) => (
+                                    <div key={index}>
+                                        <span>{edu.university || ""}</span>
+                                        <span>{edu.graduationYear || ""}</span>
+                                    </div>
+                                ))}
+                                {/*<span>{education.university || ""}</span>*/}
                                 {/*<span style={{marginTop: '0px'}}>*/}
                                 {/*    */}
                                 {/*</span>*/}
                             </div>
-                            <span>{education.graduationYear || ""}</span>
+                            {/*<span>{education.graduationYear || ""}</span>*/}
                         </div>
                         <div className={styles.line}></div>
                         <div className={styles.resume_experience}>
                             <span>Опыт работы</span>
-                            <span>{experience.company || ""}</span>
-                            <span>{experience.years || ""}</span>
+                            {/*<span>{experience.company || ""}</span>*/}
+                            {/*<span>{experience.years || ""}</span>*/}
+                            {experience.map((exp, index) => (
+                                <div key={index}>
+                                    <span>{exp.company || ""}</span>
+                                    <span>{exp.years || ""}</span>
+                                </div>
+                            ))}
                         </div>
                         <div className={styles.line}></div>
                         <div className={styles.resume_experience_inf}>

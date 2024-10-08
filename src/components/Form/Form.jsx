@@ -5,8 +5,7 @@ import Button from "../Button/Button.jsx";
 import PersonalInformation from "../PersonalInformation/PersonalInformation.jsx";
 import {useState} from "react";
 import Resume from "../Resume/Resume.jsx";
-import html2canvas from "html2canvas";
-import {jsPDF} from "jspdf";
+import {generatePDF} from "./generatePdf.js";
 
 const Form = () => {
     const [formData, setFormData] = useState({
@@ -59,23 +58,8 @@ const Form = () => {
     };
     console.log(formData);
 
-    const generatePDF = async () => {
-        console.log("pdf");
-        const input = document.getElementById("resume"); // Убедитесь, что у вас есть элемент с этим ID
-
-        const canvas = await html2canvas(input);
-        const imgData = canvas.toDataURL("image/png");
-
-        const pdf = new jsPDF({
-            orientation: 'landscape', // или 'landscape'
-            unit: 'mm',
-            format: [210, 297] // A4 в мм
-        });
-        const imgWidth = pdf.internal.pageSize.getWidth(); // Ширина изображения
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
-        pdf.save("resume.pdf");
+    const generatePDFHandler = () => {
+        generatePDF("resume"); // Передаем ID элемента
     };
 
     return (
@@ -100,7 +84,7 @@ const Form = () => {
                                 education={formData.education}
                                 onEducationChange={handleEducationChange}/>
                             <Button text='Сбросить' onClick={handleReset}/>
-                            <Button text="Сохранить в PDF" onClick={generatePDF} />
+                            <Button text="Сохранить в PDF" onClick={generatePDFHandler} />
                         </div>
                     </form>
                 </div>
@@ -108,9 +92,7 @@ const Form = () => {
             <div  id="resume">
                 <Resume formData={formData}/>
             </div>
-
         </div>
-
     );
 };
 
